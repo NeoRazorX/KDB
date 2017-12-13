@@ -1,0 +1,43 @@
+{include="header"}
+
+<script type="text/javascript">
+   $(document).ready(function () {
+      $("#b_delete_kdb").click(function (event) {
+         event.preventDefault();
+         bootbox.confirm({
+            message: '¿Realmente desea eliminar la entrada?',
+            title: '<b>Atención</b>',
+            callback: function(result) {
+               if (result) {
+                  window.location.href = '{$fsc->ppage->url()}&delete={$fsc->kdb->idkdb}';
+               }
+            }
+         });
+      });
+   });
+</script>
+
+<a class="btn btn-sm btn-default" href="index.php?page=admin_kdb">
+   <span class="glyphicon glyphicon-arrow-left"></span>
+   <span class="hidden-xs hidden-sm">&nbsp; Entradas</span>
+</a>
+
+<a href="#" id="b_delete_kdb" class="btn btn-sm btn-danger">
+   <span class="glyphicon glyphicon-trash"></span>
+   <span class="hidden-xs hidden-sm">&nbsp;Eliminar</span>
+</a>
+
+<form class="form" role="form" action="{$fsc->url()}" method="post">
+
+  <input class="form-control" type="text" name="sintoma" value="{$fsc->kdb->sintoma}" autocomplete="off"/>
+  <input class="form-control" type="text" name="causa" value="{$fsc->kdb->causa}" autocomplete="off"/>
+  <input class="form-control" type="text" name="solucion" value="{$fsc->kdb->solucion}" autocomplete="off"/>
+  <input class="form-control" type="text" name="observaciones" value="{$fsc->kdb->observaciones}" autocomplete="off"/>
+
+  <button class="btn btn-sm btn-primary" type="submit" onclick="this.disabled = true; this.form.submit();">
+    <span class="glyphicon glyphicon-floppy-disk"></span>&nbsp; Guardar
+ </button>
+
+</form>
+
+{include="footer"}

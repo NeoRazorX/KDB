@@ -1,0 +1,104 @@
+{include="header"}
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    if(window.location.hash.substring(1) == 'nuevo') {
+      $("#modal_nuevo_kdb").modal('show');
+      document.f_nuevo_kdb.ssintoma.focus();
+    }else{
+      document.f_custom_search.query.focus();
+    }
+
+    $("#b_nuevo_kdb").click(function(event) {
+      event.preventDefault();
+      $("#modal_nuevo_kdb").modal('show');
+      document.f_nuevo_kdb.ssintoma.focus();
+    });
+  });
+</script>
+
+<div class="btn-group">
+   <a id="b_nuevo_kdb" class="btn btn-sm btn-success" href="#">
+      <span class="glyphicon glyphicon-plus"></span>
+      <span class="hidden-xs">&nbsp;Nuevo</span>
+   </a>
+</div>
+
+<form name="f_custom_search" action="{$fsc->url()}" method="post" class="form">
+  <div class="col-sm-2">
+    <div class="input-group">
+      <input class="form-control" type="text" name="query" value="{$fsc->query}" autocomplete="off" placeholder="Buscar">
+      <span class="input-group-btn hidden-sm">
+        <button class="btn btn-primary" type="submit">
+          <span class="glyphicon glyphicon-search"></span>
+        </button>
+      </span>
+    </div>
+  </div>
+</form>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Síntoma</th>
+    </tr>
+  </thead>
+  {loop="$fsc->resultados"}
+  <tr>
+    <td>{$value->idkdb}</td>
+    <td>
+      <a href="{$value->url()}">{$value->sintoma}</a>
+    </td>
+  </tr>
+  {/loop}
+</table>
+
+<form class="form-horizontal" role="form" name="f_nuevo_kdb" action="{$fsc->url()}" method="post">
+  <div class="modal" id="modal_nuevo_kdb">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">
+            <span class="glyphicon glyphicon-user"></span>
+            &nbsp; Nueva entrada
+          </h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="ssintoma" class="col-sm-2 control-label">Síntoma</label>
+            <div class="col-sm-10">
+              <input class="form-control" type="text" name="ssintoma" autocomplete="off" required=""/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="scausa" class="col-sm-2 control-label">Causas</label>
+            <div class="col-sm-10">
+              <input class="form-control" type="text" name="scausa" autocomplete="off" required=""/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ssolucion" class="col-sm-2 control-label">Soluciones probadas</label>
+            <div class="col-sm-10">
+              <input class="form-control" type="text" name="ssolucion" autocomplete="off" required=""/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="sobservaciones" class="col-sm-2 control-label">Observaciones</label>
+            <div class="col-sm-10">
+              <input class="form-control" type="text" name="sobservaciones" autocomplete="off" required=""/>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-sm btn-primary" type="submit">
+            <span class="glyphicon glyphicon-floppy-disk"></span>&nbsp; Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+{include="footer"}
