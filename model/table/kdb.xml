@@ -1,33 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<tabla>
-  <columna>
-    <nombre>idkdb</nombre>
-    <tipo>integer</tipo>
-    <nulo>NO</nulo>
-  </columna>
-  <columna>
-    <nombre>sintoma</nombre>
-    <tipo>varchar(255)</tipo>
-    <nulo>NO</nulo>
-  </columna>
-  <columna>
-    <nombre>causa</nombre>
-    <tipo>varchar(255)</tipo>
-    <nulo>YES</nulo>
-  </columna>
-  <columna>
-    <nombre>solucion</nombre>
-    <tipo>varchar(255)</tipo>
-    <nulo>YES</nulo>
-  </columna>
-  <columna>
-    <nombre>observaciones</nombre>
-    <tipo>varchar(255)</tipo>
-    <nulo>YES</nulo>
-  </columna>
-  <restriccion>
-    <nombre>kdb_pkey</nombre>
-    <consulta>PRIMARY KEY (idkdb)</consulta>
-  </restriccion>
-</tabla>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tabla>
+  <columna>
+    <nombre>idkdb</nombre>
+    <tipo>integer</tipo>
+    <nulo>NO</nulo>
+  </columna>
+  <columna>
+    <nombre>sintoma</nombre>
+    <tipo>varchar(255)</tipo>
+    <nulo>NO</nulo>
+  </columna>
+  <columna>
+    <nombre>causa</nombre>
+    <tipo>varchar(255)</tipo>
+    <nulo>YES</nulo>
+  </columna>
+  <columna>
+    <nombre>solucion</nombre>
+    <tipo>varchar(255)</tipo>
+    <nulo>YES</nulo>
+  </columna>
+  <columna>
+    <nombre>observaciones</nombre>
+    <tipo>varchar(255)</tipo>
+    <nulo>YES</nulo>
+  </columna>
+  <restriccion>
+    <nombre>kdb_pkey</nombre>
+    <consulta>PRIMARY KEY (idkdb)</consulta>
+  </restriccion>
+</tabla>
